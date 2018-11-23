@@ -1,3 +1,13 @@
+注：引用后会有Design 包冲突需
+
+compile (project(':baseframelibrary')){
+
+        exclude group: 'com.android.support'
+        
+        exclude module: 'support-design'
+        
+    }
+
 一、使用版本升级功能时/选择头像-拍照-照片库：
 
 1、确保开启权限
