@@ -7,6 +7,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import china.ljt.com.baseframe.R;
+import china.ljt.com.baseframe.utils.ActivityTools;
+
 
 /**
  * Created by 李江涛 on 2017/6/29.
@@ -18,6 +21,7 @@ public abstract class BaseActivity extends AppCompatActivity implements  View.On
     protected Resources res;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        ActivityTools.activityFadeAnim(this);
         super.onCreate(savedInstanceState);
         res = getResources();
         setContentView(getLayoutId());
@@ -122,5 +126,19 @@ public abstract class BaseActivity extends AppCompatActivity implements  View.On
         if (null != intent)
             bundle = intent.getExtras();
         return bundle;
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.alpha_start,
+                R.anim.alpha_end);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.alpha_start,
+                R.anim.alpha_end);
     }
 }

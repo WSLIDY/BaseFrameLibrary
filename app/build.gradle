@@ -30,12 +30,15 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
     testCompile 'junit:junit:4.12'
     //RecyclerView
+    compile 'com.android.support:design:26.0.0-alpha1'
     compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
     compile 'com.android.support:cardview-v7:26.0.0-alpha1'
     dependencies {
         compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.33'
     }
-    compile project(':baseframelibrary')
+    compile ('com.github.WSLIDY:BaseFrameLibrary:3.0'){
+        exclude group: 'com.android.support'
+        exclude module:'support-design'
+    }
 
-    compile 'com.android.support:design:26.0.0-alpha1'
 }
