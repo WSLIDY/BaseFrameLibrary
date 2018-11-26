@@ -122,6 +122,17 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     }
 
     /**
+     * findViewById
+     * @param resId
+     * @param <T>
+     * @return
+     */
+    public <T extends View> T $findViewById(int resId, View.OnClickListener listener) {
+        mRootView.findViewById(resId).setOnClickListener(listener);
+        return (T) mRootView.findViewById(resId);
+    }
+
+    /**
      * startActivity
      * @param cls 需要启动的Activity
      */

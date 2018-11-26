@@ -91,6 +91,16 @@ public abstract class BaseActivity extends AppCompatActivity implements  View.On
         return (T) findViewById(resId);
     }
     /**
+     * findViewById
+     * @param resId
+     * @param <T>
+     * @return
+     */
+    public <T extends View> T $findViewById(int resId, View.OnClickListener listener) {
+        findViewById(resId).setOnClickListener(listener);
+        return (T) findViewById(resId);
+    }
+    /**
      * startActivity 存在Bundle
      * @param cls 需要启动的Activity
      * @param bundle Bundle数据
