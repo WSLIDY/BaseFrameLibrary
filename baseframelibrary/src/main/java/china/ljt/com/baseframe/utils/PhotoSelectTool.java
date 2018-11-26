@@ -80,21 +80,32 @@ public class PhotoSelectTool {
     private static IPhotoImageCommit iPhotoImageCommit;
 
     public static void selectOnFragment(final Fragment currentFragmen, IPhotoImageCommit model, ImageView iv) {
+        selectOnFragment(currentFragmen,model,iv,false);
+    }
+
+    public static void selectOnActivity(final Context sontext, IPhotoImageCommit model, ImageView iv) {
+        selectOnActivity(sontext,model,iv,false);
+    }
+    public static void selectOnFragment(final Fragment currentFragmen, IPhotoImageCommit model, ImageView iv,boolean ownDialog) {
         imageView = iv;
         currentFragment = currentFragmen;
         currentActivity = null;
         context = currentFragmen.getContext();
         iPhotoImageCommit = model;
-        setSelectDialog();
+        if (!ownDialog) {
+            setSelectDialog();
+        }
     }
 
-    public static void selectOnActivity(final Context sontext, IPhotoImageCommit model, ImageView iv) {
+    public static void selectOnActivity(final Context sontext, IPhotoImageCommit model, ImageView iv,boolean ownDialog) {
         imageView = iv;
         context = sontext;
         currentActivity = (Activity) context;
         currentFragment = null;
         iPhotoImageCommit = model;
-        setSelectDialog();
+        if (!ownDialog) {
+            setSelectDialog();
+        }
     }
 
     private static void setSelectDialog() {
@@ -144,11 +155,11 @@ public class PhotoSelectTool {
         });
     }
 
-    private static void gallery() {
+    public static void gallery() {
         autoObtainStoragePermission();
     }
 
-    private static void fromCamera() {
+    public static void fromCamera() {
         autoObtainCameraPermission();
     }
 
