@@ -50,11 +50,13 @@ public class LeftSlideView extends HorizontalScrollView {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         if (!once) {
-            signVIew = getChildAt(0);
-            if (signVIew instanceof ViewGroup) {
-                signVIew = ((ViewGroup) signVIew).getChildAt(0);
+            if (getChildCount() > 0) {
+                signVIew = getChildAt(0);
+                if (signVIew instanceof ViewGroup) {
+                    signVIew = ((ViewGroup) signVIew).getChildAt(0);
+                }
+                once = true;
             }
-            once = true;
         }
     }
 
@@ -80,8 +82,9 @@ public class LeftSlideView extends HorizontalScrollView {
         switch (action) {
             case MotionEvent.ACTION_DOWN://按下
             case MotionEvent.ACTION_MOVE://移动
-                mIonSlidingButtonListener.onDownOrMove(this);
-                //onDownOrMove1(this);
+                if (mIonSlidingButtonListener != null) {
+                    mIonSlidingButtonListener.onDownOrMove(this);
+                }
                 break;
             case MotionEvent.ACTION_UP://松开
             case MotionEvent.ACTION_CANCEL:
@@ -119,9 +122,9 @@ public class LeftSlideView extends HorizontalScrollView {
         if (getScrollX() >= (mScrollWidth / 2)) {
             this.smoothScrollTo(mScrollWidth, 0);
             isOpen = true;
-            mIonSlidingButtonListener.onMenuIsOpen(this);
-           //onMenuIsOpen1(this);
-
+            if (mIonSlidingButtonListener != null) {
+                mIonSlidingButtonListener.onMenuIsOpen(this);
+            }
         } else {
             this.smoothScrollTo(0, 0);
             isOpen = false;
@@ -166,44 +169,5 @@ public class LeftSlideView extends HorizontalScrollView {
         void onMenuIsOpen(View view);//判断菜单是否打开
 
         void onDownOrMove(LeftSlideView leftSlideView);//滑动或者点击了Item监听
-    }
-    /******************************************************************/
-    /**
-     * 删除菜单打开信息接收
-     */
-    public void onMenuIsOpen1(View view) {
-        mMenu = (LeftSlideView) view;
-       // openedMenu = (LeftSlideView) view;
-    }
-    /**
-     * 滑动或者点击了Item监听
-     *
-     * @param leftSlideView
-     */
-    public void onDownOrMove1(LeftSlideView leftSlideView) {
-        if (menuIsOpen1()) {
-            if (mMenu != leftSlideView) {
-                closeMenu();
-            }
-        }
-    }
-    /**
-     * 关闭菜单
-     */
-    public void closeMenu1() {
-        mMenu.closeMenu();
-        mMenu = null;
-
-    }
-    /**
-     * 判断菜单是否打开
-     *
-     * @return
-     */
-    public Boolean menuIsOpen1() {
-        if (mMenu != null) {
-            return true;
-        }
-        return false;
     }
 }
