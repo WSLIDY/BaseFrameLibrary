@@ -39,9 +39,6 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
      */
     protected boolean mIsPrepare;
 
-    public BaseFragment(String arg) {
-        this.arg = arg;
-    }
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
