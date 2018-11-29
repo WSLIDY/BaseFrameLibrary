@@ -26,9 +26,9 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".Main2Activity"
-            android:theme="@style/AboutTheme"
-            ></activity>
+        <activity
+            android:name=".MyActivity"
+            android:theme="@style/AboutTheme"></activity>
     </application>
 
 </manifest>

@@ -5,7 +5,7 @@ android {
     buildToolsVersion "26.0.3"
     defaultConfig {
         applicationId "china.ljt.com.ljtbaseframe"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -36,9 +36,9 @@ dependencies {
     dependencies {
         compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.33'
     }
-    compile ('com.github.WSLIDY:BaseFrameLibrary:3.0'){
+    compile (project(':baseframelibrary')){
         exclude group: 'com.android.support'
         exclude module:'support-design'
+        exclude module:'support-recyclerview'
     }
-
 }

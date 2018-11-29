@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<china.ljt.com.baseframe.widget.LeftSlideView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:background="@android:color/white"
+    android:layout_marginBottom="1dp">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <!--"设置"，"删除"按钮使用了TextView而不是Button，是因为５.０以上版本使用Button会显示在上层产出错误显示-->
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/delete_image"
+            android:layout_toRightOf="@+id/layout_content"
+
+            />
+
+
+
+
+        <RelativeLayout
+            android:id="@+id/layout_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/text"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:textSize="50dp"
+                android:textColor="#dde65b05"
+                android:background="@drawable/white_background"
+                />
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+</china.ljt.com.baseframe.widget.LeftSlideView>

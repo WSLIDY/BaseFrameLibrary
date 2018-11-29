@@ -53,7 +53,6 @@ public class MainActivity extends BaseActivity {
         switch (v.getId()) {
             case R.id.main_01:
                // PermissionGen.with(this).permissions(Manifest.permission.WRITE_EXTERNAL_STORAGE).addRequestCode(100).request();
-                $startActivity(Main2Activity.class,null);
 //                new GeneralDialog(this, "发现新版本，是否更新？", "取消", "确定").setDialogListener(new GeneralDialog.ICustomDialogListener() {
 //                    @Override
 //                    public void dialogClick(View view) {
@@ -87,10 +86,13 @@ public class MainActivity extends BaseActivity {
                 }).show();
                 break;
             case R.id.main_04:
-                PhotoSelectTool.selectOnActivity(this,null,imageView);
+                //PhotoSelectTool.selectOnActivity(this,null,imageView);
+                $startActivity(MyActivity.class,null);
+
                 break;
             case R.id.main_05:
-              // GlideUtils.getInstance(this).loadCircleImage("http://guolin.tech/book.png",imageView2);
+
+                // GlideUtils.getInstance(this).loadCircleImage("http://guolin.tech/book.png",imageView2);
                //GlideUtils.getInstance(this,R.mipmap.ic_er,R.mipmap.ic_launcher).loadImage("http://p1.pstatp.com/large/166200019850062839d3",imageView2);
               //  Glide.with(this).load("http://guolin.tech/book.png").into(imageView2);
                 break;
