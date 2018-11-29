@@ -23,6 +23,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     private long lastClick = 0;
     protected Resources res;
     protected BaseActivity holdActivity;
+    protected String arg;
     /**
      * 根view
      */
@@ -38,7 +39,12 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
      */
     protected boolean mIsPrepare;
 
+    public BaseFragment() {
 
+    }
+    public BaseFragment(String arg) {
+        this.arg = arg;
+    }
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
