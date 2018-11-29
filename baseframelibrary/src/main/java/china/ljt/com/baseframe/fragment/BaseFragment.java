@@ -39,9 +39,6 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
      */
     protected boolean mIsPrepare;
 
-    public BaseFragment() {
-
-    }
     public BaseFragment(String arg) {
         this.arg = arg;
     }
